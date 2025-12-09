@@ -1,120 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Power Outage Project</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            color: #333;
-        }
-
-        /* MAIN TITLE (The biggest text on the page) */
-        .main-header {
-            text-align: center;
-            margin-bottom: 60px;
-            border-bottom: 2px solid #eee;
-            padding-bottom: 20px;
-        }
-        .main-header h1 {
-            font-size: 36px;
-            margin-bottom: 10px;
-            color: #2c3e50;
-        }
-        .creators {
-            font-size: 18px;
-            color: #666;
-            font-style: italic;
-        }
-
-        /* SECTION HEADERS (Introduction, Data Cleaning - these will match!) */
-        h2 {
-            font-size: 24px;  /* Explicitly sets the size for ALL h2 tags */
-            color: #2c3e50;
-            margin-top: 40px;
-            border-left: 5px solid #3498db;
-            padding-left: 15px;
-        }
-
-        code {
-            background-color: #f4f4f4;
-            padding: 2px 5px;
-            border-radius: 4px;
-            font-family: monospace;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Power Outage Analysis</title>
 </head>
 <body>
+  <h1>Power Outage Analysis</h1>
 
-    <div class="main-header">
-        <h1>Power Outage Analysis</h1>
-        <p class="creators">By Sana Gupta & Aarushi Jain</p> 
-    </div>
+  <h2>Outages by Month</h2>
+  <iframe
+      src="assets/outages_by_month.html"
+      width="850"
+      height="600"
+      frameborder="0">
+  </iframe>
 
-    <h2>Introduction</h2>
-    <p>
-    Our dataset contains detailed information on power outages across different U.S. states, with each row 
-    representing a single outage event. These events include when the outage began, how long it lasted, how many 
-    customers were affected, and what factors contributed to the disruption. Understanding this dataset is important 
-    because power outages are becoming increasingly common due to aging infrastructure, extreme weather, and rising 
-    energy demands. By examining outage patterns, we can better understand which factors contribute most to 
-    disruptions and potentially identify ways to reduce their impact on communities.
-    </p>
+  <h2>Outages by Climate Region</h2>
+  <iframe
+      src="assets/outages_by_climate_region.html"
+      width="850"
+      height="600"
+      frameborder="0">
+  </iframe>
 
-    <p>
-    The central question guiding this project is: <strong>Which factors are most strongly associated with longer 
-    power outage durations?</strong> This question matters because outage duration directly affects public safety, 
-    economic loss, and community resilience. If we can understand what drives long outages, decision-makers can 
-    better prepare and respond to emergencies.
-    </p>
-
-    <p>The dataset contains <strong>1534 rows</strong>. The relevant columns for this question are:</p>
-
-    <ul>
-        <li><strong>OUTAGE.START</strong> — The start date and time of the outage event.</li>
-        <li><strong>OUTAGE.DURATION</strong> — The length of the outage in minutes.</li>
-        <li><strong>CUSTOMERS.AFFECTED</strong> — Estimated number of customers impacted.</li>
-        <li><strong>CAUSE.CATEGORY</strong> — High-level category describing the primary cause of the outage.</li>
-        <li><strong>CAUSE.SUBCATEGORY</strong> — More specific details about the cause.</li>
-        <li><strong>CLIMATE.REGION</strong> — The assigned climate region for the state in which the outage occurred.</li>
-    </ul>
-
-    <p>
-    These initial observations help motivate deeper analysis into which factors are truly connected to longer 
-    outage durations.
-    </p>
-
-
-    <h2>Data Cleaning and Exploratory Data Analysis</h2>
-    <p>
-    Before analyzing the dataset, several cleaning steps were necessary to ensure accuracy and consistency. First, 
-    rows containing header information and unrelated metadata were removed so the dataset included only valid 
-    outage records. Placeholder values such as <code>--</code>, <code>Unknown</code>, and <code>N/A</code> were replaced with proper 
-    missing values to prevent incorrect interpretation during analysis. Numeric columns such as <code>YEAR</code>, 
-    <code>MONTH</code>, <code>POPULATION</code>, and <code>OUTAGE.DURATION</code> were converted to numeric types, with invalid values coerced 
-    to missing where appropriate.
-    </p>
-
-    <p>
-    Next, the outage start date and time were combined into a single <code>OUTAGE.START</code> column to reflect the full 
-    timestamp of each event. Redundant columns such as <code>OUTAGE.START.DATE</code> and <code>OUTAGE.START.TIME</code> were then 
-    removed. Additionally, an <code>URBANIZATION</code> variable was created by combining <code>POPPCT_URBAN</code> and 
-    <code>POPPCT_UC</code> to give a more comprehensive understanding of the urban population share in each state.
-    </p>
-
-    <p>
-    These data cleaning steps ensured the dataset was well-structured and ready for exploratory analysis. Below, we 
-    present both univariate and bivariate visualizations, as well as grouped summaries, to explore how various 
-    factors relate to outage duration and outage characteristics across states and causes.
-    </p>
-
+<<<<<<< HEAD
     <h3>Outages by Month</h3>
     <iframe src="assets/outages_by_month.html" width="100%" height="600" frameborder="0"></iframe>
 
+=======
+  <h2>Population by Outage Cause</h2>
+  <iframe
+      src="assets/population_by_cause.html"
+      width="850"
+      height="600"
+      frameborder="0">
+  </iframe>
+>>>>>>> e02954bb365fe877b1b99b293a9c0f3088d41fea
 </body>
 </html>
