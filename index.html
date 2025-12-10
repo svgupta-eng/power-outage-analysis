@@ -152,6 +152,15 @@
     the missingness using that observed variable.
     </p>
 
+<p>
+    <strong>Additional Data:</strong> To transform this from NMAR to MAR (Missing At Random), we would want to obtain 
+    data regarding the <strong>reporting policies and minimum thresholds</strong> of the specific utility companies involved.
+    </p>
+
+    <h3>Missingness Plot</h3>
+    <p>The plot below visualizes the distribution of missing values in our dataset.</p>
+    <iframe src="assets/missingness_plot.html" width="100%" height="600" frameborder="0"></iframe>
+
 <h2>Hypothesis Testing</h2>
     <p>
     To understand if the timing of outages correlates with their severity, we performed a permutation test 
@@ -258,6 +267,60 @@
     the model still incorrectly predicts the cause of the outage more than half the time. This suggests that just knowing the location (Climate Region) 
     and urbanization level isn't enough to distinguish between complex causes like "equipment failure" versus "severe weather." 
     We likely need more specific features, such as weather data or grid characteristics, to improve performance.
+    </p>
+
+<h2>Final Model</h2>
+    
+    <h3>Feature Engineering</h3>
+    <p>
+    To improve upon the baseline, we added four new features: <code>MONTH</code>, <code>CLIMATE.CATEGORY</code>, 
+    <code>POPULATION</code>, and <code>NERC.REGION</code>. We believe these features are critical from a "data generating" perspective:
+    </p>
+    <ul>
+        <li><strong>MONTH:</strong> Power outages are highly seasonal. "Severe Weather" causes (like snowstorms vs. hurricanes vs. heatwaves) 
+        happen at specific times of the year. By including the month, the model can differentiate between a winter outage (likely ice/snow) 
+        and a summer outage (likely heat/overload).</li>
+        <li><strong>CLIMATE.CATEGORY:</strong> While <code>CLIMATE.REGION</code> tells us "where", <code>CLIMATE.CATEGORY</code> 
+        (e.g., "Cold", "Warm", "Normal") explicitly flags extreme environmental conditions. Outages during "Cold" periods are mechanically different 
+        (frozen lines) than those during "Normal" periods.</li>
+        <li><strong>NERC.REGION:</strong> The North American grid is divided into regional interconnects (like WECC, TRE, MRO) which have 
+        different infrastructure standards and reporting protocols. An outage in the Texas (TRE) grid often has different characteristic causes 
+        compared to the Northeast.</li>
+        <li><strong>POPULATION:</strong> Higher population density correlates with more complex grid infrastructure and higher demand. 
+        Equipment failures might be more common in older, densely populated cities compared to rural areas where lines are exposed to nature.</li>
+    </ul>
+
+    <h3>Modeling Algorithm</h3>
+    <p>
+    We chose a <strong>Random Forest Classifier</strong> for our final model. Random Forests are excellent for this type of data because 
+    they can capture non-linear relationships (e.g., the interaction between "Month=January" and "Region=Northeast") and are generally 
+    more robust to overfitting than a single Decision Tree.
+    </p>
+
+    <h3>Hyperparameter Tuning</h3>
+    <p>
+    We used <code>GridSearchCV</code> with 5-fold cross-validation to find the optimal hyperparameters. We searched over the following range:
+    </p>
+    <ul>
+        <li><code>n_estimators</code>: [200, 300] (Number of trees)</li>
+        <li><code>max_depth</code>: [None, 15, 25] (Maximum depth of each tree)</li>
+        <li><code>min_samples_leaf</code>: [1, 3] (Minimum samples required at a leaf node)</li>
+    </ul>
+    <p>
+    <strong>Best Hyperparameters:</strong> The best performing model used <code>n_estimators=300</code>, 
+    <code>max_depth=None</code>, and <code>min_samples_leaf=3</code>.
+    </p>
+
+    <h3>Performance Improvement</h3>
+    <p>
+    Our Final Model achieved an accuracy of <strong>69.1%</strong>, which is a substantial improvement over the Baseline Model's 
+    accuracy of 47.2%. 
+    </p>
+    <p>
+    The increase of approximately <strong>22 percentage points</strong> demonstrates that the added features (especially <code>MONTH</code> 
+    and <code>NERC.REGION</code>) provided crucial signal that the location alone could not capture. By understanding the "when" (Month) 
+    and the specific grid infrastructure (NERC), the Random Forest was able to better distinguish between causes like "Severe Weather" 
+    and "System Operability Disruption."
     </p>
 
 
