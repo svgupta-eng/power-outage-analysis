@@ -351,30 +351,20 @@
     <h3>Missingness Plot</h3>
     <p>The plot below visualizes the distribution of missing values in our dataset.</p>
     <iframe src="assets/missingness_plot.html" width="100%" height="600" frameborder="0"></iframe>
-
-    <h3>Missingness Dependency Analysis</h3>
+<h3>Missingness Dependency Analysis</h3>
     <p>
-      We analyzed whether the missingness of <code>CAUSE.CATEGORY</code> depends on other
-      columns using permutation tests.
+    We analyzed whether the missingness of <code>CUSTOMERS.AFFECTED</code> depends on the outage duration.
+    Using permutation tests with the difference in mean outage duration as our test statistic, we found:
     </p>
     <ul>
       <li>
-        <strong>Depends on: <code>URBANIZATION</code></strong><br>
-        The p-value from our permutation test was <strong>&lt; 0.05</strong>, indicating that the
-        probability that <code>CAUSE.CATEGORY</code> is missing is associated with how
-        urbanized a state is. More rural states tend to have slightly higher rates of
-        missing cause information.
-      </li>
-      <li>
-        <strong>Does NOT depend on: <code>YEAR</code></strong><br>
-        The p-value was <strong>&gt; 0.05</strong>, meaning missingness does <em>not</em> vary
-        significantly across calendar years. This suggests reporting quality has
-        remained relatively stable over time.
+        <strong>Depends on:</strong> <code>OUTAGE.DURATION</code> (p-value &lt; 0.05).
+        This suggests that records with missing customer counts tend to have systematically different
+        outage durations, supporting our NMAR reasoning.
       </li>
     </ul>
     <p>
-      These results imply that missingness in <code>CAUSE.CATEGORY</code> is more related
-      to structural and geographic factors than to time.
+    Overall, this test indicates that the missingness of customer counts is significantly related to the severity (duration) of the outage.
     </p>
 
 
