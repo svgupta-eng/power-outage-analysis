@@ -248,6 +248,120 @@ tr:nth-child(even) {
     </table>
 </div>
 
+<h3>Cleaned Data Head</h3>
+<p>Below is the first few rows of our cleaned DataFrame:</p>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>YEAR</th>
+                <th>MONTH</th>
+                <th>U.S._STATE</th>
+                <th>NERC.REGION</th>
+                <th>CLIMATE.REGION</th>
+                <th>ANOMALY.LEVEL</th>
+                <th>CLIMATE.CATEGORY</th>
+                <th>OUTAGE.DURATION</th>
+                <th>HURRICANE.NAMES</th>
+                <th>POPULATION</th>
+                <th>CAUSE.CATEGORY</th>
+                <th>OUTAGE.START</th>
+                <th>URBANIZATION</th>
+                <th>duration_missing</th>
+                <th>cause_missing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2011</td>
+                <td>7.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>-0.3</td>
+                <td>normal</td>
+                <td>3060.0</td>
+                <td>NaN</td>
+                <td>5348119</td>
+                <td>severe weather</td>
+                <td>2011-07-01 17:00:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>5.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>-0.1</td>
+                <td>normal</td>
+                <td>1.0</td>
+                <td>NaN</td>
+                <td>5457125</td>
+                <td>intentional attack</td>
+                <td>2014-05-11 18:38:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2010</td>
+                <td>10.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>-1.5</td>
+                <td>cold</td>
+                <td>3000.0</td>
+                <td>NaN</td>
+                <td>5310903</td>
+                <td>severe weather</td>
+                <td>2010-10-26 20:00:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2012</td>
+                <td>6.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>-0.1</td>
+                <td>normal</td>
+                <td>2550.0</td>
+                <td>NaN</td>
+                <td>5380443</td>
+                <td>severe weather</td>
+                <td>2012-06-19 04:30:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>7.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>1.2</td>
+                <td>warm</td>
+                <td>1740.0</td>
+                <td>NaN</td>
+                <td>5489594</td>
+                <td>severe weather</td>
+                <td>2015-07-18 02:00:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
     <p>
     These data cleaning steps ensured the dataset was well-structured and ready for exploratory analysis. Below, we 
     present both univariate and bivariate visualizations, as well as grouped summaries, to explore how various 
@@ -264,12 +378,6 @@ tr:nth-child(even) {
     <iframe src="assets/outages_by_climate_region.html" width="100%" height="600" frameborder="0"></iframe>
     <p>
     This plot compares outage frequency across climate regions and shows that the Northeast and some southern and western regions experience more outages, reflecting differences in weather patterns and infrastructure.
-    </p>
-
-    <h3>3. Population by Outage Cause</h3>
-    <iframe src="assets/population_by_cause.html" width="100%" height="600" frameborder="0"></iframe>
-    <p>
-    This boxplot shows that outages from system operability issues and fuel supply emergencies tend to affect states with larger populations, while causes like intentional attacks and severe weather skew toward smaller or less urban states.
     </p>
 
 <h2>Assessment of Missingness</h2>
