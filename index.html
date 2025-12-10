@@ -187,6 +187,48 @@
     <h3>Permutation Test Distribution</h3>
     <p>The histogram below shows the distribution of the test statistic under the null hypothesis, with the red line indicating our observed statistic.</p>
 
+<h2>Prediction Problem</h2>
+    <p>
+    <strong>Problem Statement:</strong> 
+    The goal of our machine learning model is to predict the <strong>CAUSE.CATEGORY</strong> of a power outage based on 
+    characteristics available at the start of the event.
+    </p>
+
+    <p>
+    <strong>Type of Problem:</strong> 
+    This is a <strong>multiclass classification</strong> problem because <code>CAUSE.CATEGORY</code> is a nominal variable 
+    with several distinct classes (e.g., "severe weather", "equipment failure", "intentional attack").
+    </p>
+
+    <p>
+    <strong>Response Variable:</strong> 
+    We chose <code>CAUSE.CATEGORY</code> as the response variable. Predicting the cause of an outage is crucial because it allows 
+    utility companies to better allocate specific resources (e.g., technicians vs. security personnel), respond faster, and 
+    identify regions that are disproportionately vulnerable to specific types of outage drivers.
+    </p>
+
+    <p>
+    <strong>Features Used:</strong> 
+    To ensure a realistic prediction model, we only used features that would be known <strong>at the time the outage begins</strong>. 
+    These include:
+    </p>
+    <ul>
+        <li><code>YEAR</code> and <code>MONTH</code> (Temporal context)</li>
+        <li><code>CLIMATE.REGION</code> and <code>CLIMATE.CATEGORY</code> (Environmental context)</li>
+        <li><code>POPULATION</code> and <code>URBANIZATION</code> (Demographic context)</li>
+        <li><code>NERC.REGION</code> (Grid infrastructure context)</li>
+    </ul>
+    <p>
+    We explicitly excluded variables like <code>OUTAGE.DURATION</code> and restoration time, as these metrics are only known 
+    <em>after</em> the outage has been resolved.
+    </p>
+
+    <p>
+    <strong>Evaluation Metric:</strong> 
+    We are using <strong>Accuracy</strong> as our primary evaluation metric. Since this is a baseline multiclass classifier, 
+    accuracy provides a straightforward measure of how often the model correctly identifies the cause. 
+    (Note: If we find significant class imbalance later, we may consider F1-score).
+    </p>
 
 
 </body>
