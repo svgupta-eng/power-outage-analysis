@@ -184,8 +184,6 @@
     arbitrary calendar feature rather than a physical or environmental factor likely to influence power grid stability.
     </p>
 
-    <h3>Permutation Test Distribution</h3>
-    <p>The histogram below shows the distribution of the test statistic under the null hypothesis, with the red line indicating our observed statistic.</p>
 
 <h2>Framing a Prediction Problem</h2>
     <p>
@@ -228,6 +226,38 @@
     We are using <strong>Accuracy</strong> as our primary evaluation metric. Since this is a baseline multiclass classifier, 
     accuracy provides a straightforward measure of how often the model correctly identifies the cause. 
     (Note: If we find significant class imbalance later, we may consider F1-score).
+    </p>
+
+<h2>Baseline Model</h2>
+    <p>
+    For our baseline model, we chose a <strong>Logistic Regression</strong> classifier to predict the cause of the power outage. 
+    We split the data into 80% training and 20% testing sets.
+    </p>
+
+    <p><strong>Features Used:</strong></p>
+    <ul>
+        <li><strong>Quantitative Features (2):</strong> <code>YEAR</code> and <code>URBANIZATION</code>. 
+        These were passed through the model directly ("passthrough") without scaling.</li>
+        
+        <li><strong>Nominal Features (1):</strong> <code>CLIMATE.REGION</code>. 
+        Since this is a categorical variable with no inherent order, we performed <strong>One-Hot Encoding</strong> 
+        to convert the regions into binary vectors (0s and 1s).</li>
+        
+        <li><strong>Ordinal Features:</strong> None used in this baseline.</li>
+    </ul>
+
+    <p><strong>Performance:</strong></p>
+    <p>
+    The model achieved an <strong>Accuracy of 47.2%</strong> (0.4723).
+    </p>
+
+    <p><strong>Evaluation:</strong></p>
+    <p>
+    We consider this current model to be <strong>a reasonable start, but not "good" yet</strong>. 
+    While an accuracy of 47% is significantly better than random guessing (which would be around 14% given there are 7 potential categories), 
+    the model still incorrectly predicts the cause of the outage more than half the time. This suggests that just knowing the location (Climate Region) 
+    and urbanization level isn't enough to distinguish between complex causes like "equipment failure" versus "severe weather." 
+    We likely need more specific features, such as weather data or grid characteristics, to improve performance.
     </p>
 
 
