@@ -47,6 +47,34 @@
             border-radius: 4px;
             font-family: monospace;
         }
+/* Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+}
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    white-space: nowrap; /* Keeps data on one line for readability */
+}
+th {
+    background-color: #f4f4f4;
+    color: #2c3e50;
+    font-weight: bold;
+}
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.table-container {
+    overflow-x: auto; /* Adds a scrollbar if the table is too wide */
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
     </style>
 </head>
 <body>
@@ -106,6 +134,119 @@
     removed. Additionally, an <code>URBANIZATION</code> variable was created by combining <code>POPPCT_URBAN</code> and 
     <code>POPPCT_UC</code> to give a more comprehensive understanding of the urban population share in each state.
     </p>
+<h3>Cleaned Data Head</h3>
+<p>Below is the first few rows of our cleaned DataFrame:</p>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>YEAR</th>
+                <th>MONTH</th>
+                <th>U.S._STATE</th>
+                <th>NERC.REGION</th>
+                <th>CLIMATE.REGION</th>
+                <th>ANOMALY.LEVEL</th>
+                <th>CLIMATE.CATEGORY</th>
+                <th>OUTAGE.DURATION</th>
+                <th>HURRICANE.NAMES</th>
+                <th>POPULATION</th>
+                <th>CAUSE.CATEGORY</th>
+                <th>OUTAGE.START</th>
+                <th>URBANIZATION</th>
+                <th>duration_missing</th>
+                <th>cause_missing</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2011</td>
+                <td>7.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>-0.3</td>
+                <td>normal</td>
+                <td>3060.0</td>
+                <td>NaN</td>
+                <td>5348119</td>
+                <td>severe weather</td>
+                <td>2011-07-01 17:00:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2014</td>
+                <td>5.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>-0.1</td>
+                <td>normal</td>
+                <td>1.0</td>
+                <td>NaN</td>
+                <td>5457125</td>
+                <td>intentional attack</td>
+                <td>2014-05-11 18:38:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2010</td>
+                <td>10.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>-1.5</td>
+                <td>cold</td>
+                <td>3000.0</td>
+                <td>NaN</td>
+                <td>5310903</td>
+                <td>severe weather</td>
+                <td>2010-10-26 20:00:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2012</td>
+                <td>6.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>-0.1</td>
+                <td>normal</td>
+                <td>2550.0</td>
+                <td>NaN</td>
+                <td>5380443</td>
+                <td>severe weather</td>
+                <td>2012-06-19 04:30:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>2015</td>
+                <td>7.0</td>
+                <td>Minnesota</td>
+                <td>MRO</td>
+                <td>East North Central</td>
+                <td>1.2</td>
+                <td>warm</td>
+                <td>1740.0</td>
+                <td>NaN</td>
+                <td>5489594</td>
+                <td>severe weather</td>
+                <td>2015-07-18 02:00:00</td>
+                <td>88.55</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
 
     <p>
     These data cleaning steps ensured the dataset was well-structured and ready for exploratory analysis. Below, we 
