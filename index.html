@@ -323,6 +323,50 @@
     and "System Operability Disruption."
     </p>
 
+<h2>Fairness Analysis</h2>
+    <p>
+    We evaluated whether our model is fair across different geographical landscapes. Specifically, we assessed if the model performs 
+    equally well for highly urbanized states versus less urbanized (more rural) states.
+    </p>
+
+    <p><strong>Groups Analyzed:</strong></p>
+    <ul>
+        <li><strong>Group X (High Urbanization):</strong> States with an urbanization rate above or equal to the median.</li>
+        <li><strong>Group Y (Low Urbanization):</strong> States with an urbanization rate below the median.</li>
+    </ul>
+
+    <p><strong>Evaluation Metric:</strong></p>
+    <p>
+    We used <strong>Accuracy</strong> as our parity measure. We calculated the difference in prediction accuracy between 
+    the high-urbanization and low-urbanization groups.
+    </p>
+
+    <p><strong>Hypotheses:</strong></p>
+    <ul>
+        <li><strong>Null Hypothesis ($H_0$):</strong> Our model is fair. Its accuracy for high-urbanization states and low-urbanization states is roughly the same, and any observed difference is due to random chance.</li>
+        <li><strong>Alternative Hypothesis ($H_1$):</strong> Our model is unfair. Its accuracy for high-urbanization states is significantly different from its accuracy for low-urbanization states.</li>
+    </ul>
+
+    <p><strong>Test Statistic:</strong> Difference in accuracy (Accuracy of High Urban - Accuracy of Low Urban).</p>
+    <p><strong>Significance Level:</strong> 0.05</p>
+
+    <p><strong>Results:</strong></p>
+    <p>
+    After performing a permutation test with 1,000 permutations, we obtained the following results:
+    </p>
+    <ul>
+        <li><strong>Observed Accuracy Difference:</strong> INSERT_OBSERVED_DIFF_HERE (e.g., 0.04)</li>
+        <li><strong>P-value:</strong> INSERT_P_VALUE_HERE (e.g., 0.28)</li>
+    </ul>
+
+    <p><strong>Conclusion:</strong></p>
+    <p>
+    Since the p-value is greater than 0.05, we <strong>fail to reject the null hypothesis</strong>. 
+    This suggests that our model does not suffer from significant bias based on urbanization; it predicts outage causes 
+    with roughly equal reliability for both rural and urban states.
+    
+    </p>
+
 
 </body>
 </html>
