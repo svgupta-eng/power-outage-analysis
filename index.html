@@ -354,24 +354,29 @@
 
     <h3>Missingness Dependency Analysis</h3>
     <p>
-    We analyzed whether the missingness of <code>CUSTOMERS.AFFECTED</code> depends on other columns.
-    Using permutation tests with the difference in mean outage duration as our test statistic, we found:
+      We analyzed whether the missingness of <code>CAUSE.CATEGORY</code> depends on other
+      columns using permutation tests.
     </p>
     <ul>
       <li>
-        <strong>Depends on:</strong> <code>OUTAGE.DURATION</code> (p-value &lt; 0.05).
-        This suggests that records with missing customer counts tend to have systematically different
-        outage durations, supporting our NMAR reasoning.
+        <strong>Depends on: <code>URBANIZATION</code></strong><br>
+        The p-value from our permutation test was <strong>&lt; 0.05</strong>, indicating that the
+        probability that <code>CAUSE.CATEGORY</code> is missing is associated with how
+        urbanized a state is. More rural states tend to have slightly higher rates of
+        missing cause information.
       </li>
       <li>
-        <strong>Does not depend on:</strong> <code>YEAR</code> (p-value &gt; 0.05).
-        This suggests that missingness is not strongly tied to the calendar year.
+        <strong>Does NOT depend on: <code>YEAR</code></strong><br>
+        The p-value was <strong>&gt; 0.05</strong>, meaning missingness does <em>not</em> vary
+        significantly across calendar years. This suggests reporting quality has
+        remained relatively stable over time.
       </li>
     </ul>
     <p>
-    Overall, these tests indicate that missing customer counts are related to outage severity but not
-    to when the outage occurred.
+      These results imply that missingness in <code>CAUSE.CATEGORY</code> is more related
+      to structural and geographic factors than to time.
     </p>
+
 
     <h2>Hypothesis Testing</h2>
     <p>
