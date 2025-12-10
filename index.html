@@ -122,6 +122,27 @@
     <h3>3. Population by Outage Cause</h3>
     <iframe src="assets/population_by_cause.html" width="100%" height="600" frameborder="0"></iframe>
 
+<h2>Assessment of Missingness</h2>
+    <p>
+    We believe that the <strong>CUSTOMERS.AFFECTED</strong> column is likely <strong>NMAR</strong> (Not Missing At Random). 
+    </p>
+
+    <p>
+    <strong>Reasoning:</strong> The missingness in this column is likely dependent on the missing value itself. 
+    Utility companies and federal agencies are more rigorous about recording data for massive, high-impact events. 
+    If an outage affects a very small number of people, it may not trigger the reporting threshold required by 
+    department of energy guidelines, or the utility might simply prioritize restoring power over precise clerical documentation 
+    for minor events. Therefore, the probability of the value being missing increases as the actual number of customers affected decreases. 
+    Because the missingness depends on the value of the data we typically cannot see, this falls under NMAR.
+    </p>
+
+    <p>
+    <strong>Additional Data:</strong> To transform this from NMAR to MAR (Missing At Random), we would want to obtain 
+    data regarding the <strong>reporting policies and minimum thresholds</strong> of the specific utility companies involved. 
+    If we had a dataset showing that "Utility Company X only reports outages affecting >500 customers," we could explain 
+    the missingness using that observed variable.
+    </p>
+
 </body>
 </html>
 
