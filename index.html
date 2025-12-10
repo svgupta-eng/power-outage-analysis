@@ -352,6 +352,52 @@
     <p>The plot below visualizes the distribution of missing values in our dataset.</p>
     <iframe src="assets/missingness_plot.html" width="100%" height="600" frameborder="0"></iframe>
 
+<h2>Assessment of Missingness</h2>
+    <p>
+    We believe that the <strong>CUSTOMERS.AFFECTED</strong> column is likely <strong>NMAR</strong> (Not Missing At Random). 
+    </p>
+
+    <p>
+    <strong>Reasoning:</strong> The missingness in this column is likely dependent on the missing value itself. 
+    Utility companies and federal agencies are more rigorous about recording data for massive, high-impact events. 
+    If an outage affects a very small number of people, it may not trigger the reporting threshold required by 
+    department of energy guidelines, or the utility might simply prioritize restoring power over precise clerical documentation 
+    for minor events. Therefore, the probability of the value being missing increases as the actual number of customers affected decreases. 
+    Because the missingness depends on the value of the data we typically cannot see, this falls under NMAR.
+    </p>
+
+    <p>
+    <strong>Additional Data:</strong> To transform this from NMAR to MAR (Missing At Random), we would want to obtain 
+    data regarding the <strong>reporting policies and minimum thresholds</strong> of the specific utility companies involved. 
+    If we had a dataset showing that "Utility Company X only reports outages affecting >500 customers," we could explain 
+    the missingness using that observed variable.
+    </p>
+
+    <h3>Missingness Plot</h3>
+    <p>The plot below visualizes the distribution of missing values in our dataset.</p>
+    <iframe src="assets/missingness_plot.html" width="100%" height="600" frameborder="0"></iframe>
+
+    <h3>Missingness Dependency Analysis</h3>
+    <p>
+    We analyzed whether the missingness of <code>CUSTOMERS.AFFECTED</code> depends on other columns.
+    Using permutation tests with the difference in mean outage duration as our test statistic, we found:
+    </p>
+    <ul>
+      <li>
+        <strong>Depends on:</strong> <code>OUTAGE.DURATION</code> (p-value &lt; 0.05).
+        This suggests that records with missing customer counts tend to have systematically different
+        outage durations, supporting our NMAR reasoning.
+      </li>
+      <li>
+        <strong>Does not depend on:</strong> <code>YEAR</code> (p-value &gt; 0.05).
+        This suggests that missingness is not strongly tied to the calendar year.
+      </li>
+    </ul>
+    <p>
+    Overall, these tests indicate that missing customer counts are related to outage severity but not
+    to when the outage occurred.
+    </p>
+
     <h2>Hypothesis Testing</h2>
     <p>
     To understand if the timing of outages correlates with their severity, we performed a permutation test 
