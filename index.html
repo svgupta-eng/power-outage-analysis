@@ -152,6 +152,43 @@
     the missingness using that observed variable.
     </p>
 
+<h2>Hypothesis Testing</h2>
+    <p>
+    To understand if the timing of outages correlates with their severity, we performed a permutation test 
+    to analyze the relationship between the month of the outage and its duration.
+    </p>
+
+    <p><strong>Null Hypothesis:</strong> The average outage duration is the same for outages occurring in odd-numbered months 
+    and even-numbered months. Any observed difference is due to random chance.</p>
+
+    <p><strong>Alternative Hypothesis:</strong> The average outage duration differs between odd-month and even-month outages.</p>
+
+    <p>
+    <strong>Test Statistic:</strong> The difference in mean outage duration between the two groups (Mean of Odd Months - Mean of Even Months).
+    We chose this statistic because it is a direct measure of the magnitude of difference between the two distributions.
+    </p>
+
+    <p>
+    <strong>Significance Level:</strong> 0.05
+    </p>
+
+    <p>
+    <strong>Resulting P-value:</strong> 0.318
+    </p>
+
+    <p>
+    <strong>Conclusion:</strong> 
+    Since the p-value (0.318) is greater than the significance level (0.05), we <strong>fail to reject the null hypothesis</strong>. 
+    This suggests that the "parity" of the month (whether it is odd or even) does not have a statistically significant 
+    association with the duration of power outages. This result is consistent with our intuition, as month parity is an 
+    arbitrary calendar feature rather than a physical or environmental factor likely to influence power grid stability.
+    </p>
+
+    <h3>Permutation Test Distribution</h3>
+    <p>The histogram below shows the distribution of the test statistic under the null hypothesis, with the red line indicating our observed statistic.</p>
+
+
+
 </body>
 </html>
 
