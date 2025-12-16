@@ -7,15 +7,15 @@
 This project explores a dataset of major power outages in the U.S. to understand the characteristics and causes of these events. [cite_start]The primary goal is to build a machine learning model capable of predicting the **cause of a power outage** (e.g., severe weather, intentional attack, equipment failure) based on location, time, and climate characteristics[cite: 25, 634].
 
 ## Dataset & Data Cleaning
-[cite_start]The dataset utilized is `outage.xlsx`[cite: 28]. The data cleaning process involved:
-* [cite_start]**Feature Selection:** Retaining relevant columns such as `YEAR`, `MONTH`, `U.S._STATE`, `CLIMATE.REGION`, `POPULATION`, and `CAUSE.CATEGORY` [cite: 38-39].
-* [cite_start]**Date Time formatting:** Combining `OUTAGE.START.DATE` and `OUTAGE.START.TIME` into a single datetime object[cite: 50].
-* [cite_start]**Feature Engineering:** Created a new `URBANIZATION` column by combining `POPPCT_URBAN` and `POPPCT_UC` to better represent population density[cite: 58].
-* [cite_start]**Handling Missing Values:** Coerced invalid numeric entries to `NaN` and identified missing data patterns[cite: 43].
+The dataset utilized is `outage.xlsx`[cite: 28]. The data cleaning process involved:
+* **Feature Selection:** Retaining relevant columns such as `YEAR`, `MONTH`, `U.S._STATE`, `CLIMATE.REGION`, `POPULATION`, and `CAUSE.CATEGORY` [cite: 38-39].
+* **Date Time formatting:** Combining `OUTAGE.START.DATE` and `OUTAGE.START.TIME` into a single datetime object[cite: 50].
+* **Feature Engineering:** Created a new `URBANIZATION` column by combining `POPPCT_URBAN` and `POPPCT_UC` to better represent population density[cite: 58].
+* **Handling Missing Values:** Coerced invalid numeric entries to `NaN` and identified missing data patterns[cite: 43].
 
 ## Exploratory Data Analysis (EDA)
 We performed univariate and bivariate analyses to understand the distributions of outages:
-* [cite_start]**Trends over time:** Analyzed the frequency of outages per year and month[cite: 139, 174].
+* **Trends over time:** Analyzed the frequency of outages per year and month[cite: 139, 174].
 * [cite_start]**Geographic Analysis:** Examined outage counts by Climate Region[cite: 227].
 * [cite_start]**Cause Analysis:** Investigated the relationship between outage causes and population density[cite: 196].
 
