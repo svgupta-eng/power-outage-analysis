@@ -1,7 +1,7 @@
 # Power Outages: Analysis and Cause Prediction Model
 
-[cite_start]**Authors:** Sana Gupta & Aarushi Jain [cite: 4]  
-[cite_start]**Project Website:** [View the Analysis Here](https://svgupta-eng.github.io/power-outage-analysis/) [cite: 5]
+**Authors:** Sana Gupta & Aarushi Jain [cite: 4]  
+**Project Website:** [View the Analysis Here](https://svgupta-eng.github.io/power-outage-analysis/) [cite: 5]
 
 ## Project Overview
 This project explores a dataset of major power outages in the U.S. to understand the characteristics and causes of these events. [cite_start]The primary goal is to build a machine learning model capable of predicting the **cause of a power outage** (e.g., severe weather, intentional attack, equipment failure) based on location, time, and climate characteristics[cite: 25, 634].
