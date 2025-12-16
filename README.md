@@ -1,6 +1,7 @@
 # Power Outages: Analysis and Cause Prediction Model
 
 **Authors:** Sana Gupta & Aarushi Jain
+
 **Project Website:** [View the Analysis Here](https://svgupta-eng.github.io/power-outage-analysis/)
 
 ## Project Overview
